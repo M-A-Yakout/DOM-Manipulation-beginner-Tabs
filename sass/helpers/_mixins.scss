@@ -1,0 +1,13 @@
+@mixin padding-list($size) {
+  padding-right: $size;
+  padding-left: $size;
+}
+
+@mixin padding-card($size){
+    padding: $size;
+}
+
+@mixin padding-up-Down($size){
+  padding-bottom: $size;
+  padding-top: $size;
+}

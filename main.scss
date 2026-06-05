@@ -1,0 +1,88 @@
+@use "./sass/helpers/mixins" as *;
+
+// import size
+@use "./sass/variables/size" as *;
+
+// import colors
+
+@use "./sass/variables/color" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+%flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  @extend %flex;
+  width: $width;
+  background-color: $whiteColor;
+  height: $height;
+  margin: 0 auto;
+}
+
+.card {
+  padding: $size + 10;
+  border: ($size - 9) solid $blackColor;
+  width: 100%;
+
+  & p {
+    @include padding-up-Down($size);
+  }
+}
+
+ul {
+  @extend %flex;
+  justify-content: flex-start;
+  gap: 20px;
+  padding-bottom: $size;
+}
+
+ul li {
+  list-style: none;
+  color: gray;
+  border: none;
+  padding-bottom: $size - 5;
+  cursor: pointer;
+  @include padding-list($size - 5);
+
+  &.active {
+    list-style: none;
+    border-bottom: ($size - 8) solid $blackColor;
+    padding-bottom: $size - 5;
+    @include padding-list($size - 5);
+    color: $blackColor;
+  }
+
+  &:hover {
+    color: $blackColor;
+  }
+}
+
+%text-center {
+  text-align: center;
+}
+
+.cardBlack {
+  background-color: $blackColor;
+  color: $whiteColor;
+  @include padding-card($size + 20);
+  @extend %text-center;
+  border-radius: $size;
+
+  & p {
+    display: none;
+  }
+
+  & p.active {
+    display: block;
+    color: $whiteColor;
+    @include padding-card($size + 10);
+  }
+}
